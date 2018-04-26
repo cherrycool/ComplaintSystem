@@ -17,7 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 public class Homepage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Complaints.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, Complaints.OnFragmentInteractionListener, fragment_complaint_details.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

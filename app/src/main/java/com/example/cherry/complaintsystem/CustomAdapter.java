@@ -1,6 +1,7 @@
 package com.example.cherry.complaintsystem;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 
@@ -41,6 +42,8 @@ public class CustomAdapter extends ArrayAdapter<complaint_model> implements View
         int position = (Integer) v.getTag();
         Object object = getItem(position);
         complaint_model complaintModel = (complaint_model) object;
+
+        Log.d("Complaint_info", Integer.toString(complaintModel.getComplaintID()) + ", " + complaintModel.getComplaintClass() + ", " + complaintModel.getDate_time());
 
     }
 
