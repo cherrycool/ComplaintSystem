@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+//Activity: fragment_fragment_complaint_details.xml -- Excuse the stupid name, but android automatically did it. NOT ME!
 
 /**
  * A simple {@link Fragment} subclass.

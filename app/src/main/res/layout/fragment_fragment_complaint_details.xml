@@ -24,25 +24,30 @@
 
     </RelativeLayout-->
 
+    <!-- To show the complaint detail after clicking on some complaint in the homepage content -->
+
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
         android:padding="10dp">
 
+        <!-- Class -->
         <TextView android:id="@+id/details_class"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             />
-
+        <!-- Date of complaint -->
         <TextView android:id="@+id/details_date"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
                   />
+        <!-- Issue -->
         <TextView android:id="@+id/details_issue"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"
                   />
+        <!-- Status -->
         <TextView android:id="@+id/details_status"
                   android:layout_height="wrap_content"
                   android:layout_width="wrap_content"

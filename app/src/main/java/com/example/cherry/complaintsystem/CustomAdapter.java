@@ -12,6 +12,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+//To get the complaint details information and load into the listview adapter in fragment_complaint_details.java
+
 /**
  * Created by Cherry on 4/23/2018.
  */

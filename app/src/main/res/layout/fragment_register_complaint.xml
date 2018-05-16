@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterComplaintFragment">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- For the dropdown list to choose the class of complaint -->
+        <Spinner android:id="@+id/register_class"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            />
+
+        <!-- To enter the issue -->
+        <EditText android:id="@+id/register_issue"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            />
+
+        <!-- After entering the complaint, click okay-->
+        <Button
+            android:id="@+id/register_okay"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

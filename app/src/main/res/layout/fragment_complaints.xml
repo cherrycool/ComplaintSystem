@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.cherry.complaintsystem.Complaints">
 
+    <!-- Loaded into FrameLayout of content_homepage -->
+
+    <!-- Shows a summarised complaint in row form -->
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -13,6 +16,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/activity_main">
 
+        <!-- Loads the complaint in row form from the listview adapter in complaints.java -->
         <ListView
             android:id="@+id/complaint_list"
             android:layout_width="wrap_content"

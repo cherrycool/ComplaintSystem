@@ -16,8 +16,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+//Activity : content_homepage.xml
+//The fragment_complaints.xml corresponding to Complaints.java Activity, is loaded into the framelayout space in the content_homepage.xml
+
 public class Homepage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Complaints.OnFragmentInteractionListener, fragment_complaint_details.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, Complaints.OnFragmentInteractionListener, fragment_complaint_details.OnFragmentInteractionListener, RegisterComplaintFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +47,7 @@ public class Homepage extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        displaySelectedScreen(R.id.nav_camera);
+        displaySelectedScreen(R.id.nav_complaint);
     }
 
     @Override
@@ -110,12 +113,13 @@ public class Homepage extends AppCompatActivity
 
         Fragment fragment = null;
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_complaint) {
             fragment = new Complaints();
 
-        } /*else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_register) {
+            fragment = new RegisterComplaintFragment();
 
-        } else if (id == R.id.nav_slideshow) {
+        } /*else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 

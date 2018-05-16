@@ -10,6 +10,7 @@
 
 
     <!--Fragments-->
+    <!-- Example: When clicking on register complaint in the app, it will load the fragment_complaints.xml in the framelayout space-->
 
     <FrameLayout
         android:id="@+id/content_frame"
