@@ -1,5 +1,6 @@
 package com.example.cherry.complaintsystem;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.net.Uri;
@@ -97,9 +98,12 @@ public class RegisterComplaintFragment extends Fragment {
 
         Button btn = (Button) view.findViewById(R.id.register_okay);
 
+        final Spinner class_spinner = (Spinner) view.findViewById(R.id.register_class);
+        final EditText issue_edit = (EditText) view.findViewById(R.id.register_issue);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 //TODO: 1. Save in local DB and display on list
                 //TODO: 2. Sync with server
 
@@ -109,27 +113,39 @@ public class RegisterComplaintFragment extends Fragment {
                 int id = sharedPref.getAll().size();
                 id++;
 
-                //Spinner class_spinner = (Spinner) getView().findViewById(R.id.register_class);
-                //String complaint_class = class_spinner.getSelectedItem().toString();
 
-                EditText issue_edit = (EditText) view.findViewById(R.id.register_issue);
+                String complaint_class = class_spinner.getSelectedItem().toString();
+
+
                 String complaint_issue = issue_edit.getText().toString();
 
-                DateFormat df = new SimpleDateFormat("dd MM yyyy, HH:mm");
-                String complaint_date = df.format(Calendar.getInstance().getTime());
+                //DateFormat df = new SimpleDateFormat("dd MM yyyy, HH:mm");
+                //String complaint_date = df.format(Calendar.getInstance().getTime());
 
-                Log.d("complaint_register", Integer.toString(id) + " : " + register_complaint_class + " : " + complaint_issue + " : " + complaint_date);
+                //Log.d("complaint_register", Integer.toString(id) + " : " + register_complaint_class + " : " + complaint_issue + " : " + complaint_date);
 
 
                 //Create the complaint model
-                complaint_model c_data = new complaint_model(id, register_complaint_class, complaint_issue, complaint_date, 1);
+                complaint_model c_data = new complaint_model(id, register_complaint_class, complaint_issue, null, 1);
 
-                //Get Shared Preferences of Complaints
+                //Insert into the db
+                // Add a new student record
+                ContentValues values = new ContentValues();
+                values.put(DBContentProvider.COMPLAINT_CLASS, register_complaint_class);
+
+                values.put(DBContentProvider.COMPLAINT_ISSUE, complaint_issue);
+
+                values.put(DBContentProvider.COMPLAINT_STATUS, 1);
+
+                Uri uri = getContext().getContentResolver().insert(DBContentProvider.CONTENT_URI_COMPLAINTS, values);
+
+                Log.d("complaint_db", uri.toString());
 
                 Toast.makeText(getContext(), "Complaint registered", Toast.LENGTH_LONG).show();
-                //Fragment fragment = new Complaints();
 
-                //replaceFragment(fragment);
+                Fragment fragment = new Complaints();
+
+                replaceFragment(fragment);
             }
         });
 
@@ -201,7 +217,7 @@ public class RegisterComplaintFragment extends Fragment {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 register_complaint_class = spinner_class.getSelectedItem().toString();
 
-                Toast.makeText(getContext(), register_complaint_class, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getContext(), register_complaint_class, Toast.LENGTH_LONG).show();
             }
 
             @Override

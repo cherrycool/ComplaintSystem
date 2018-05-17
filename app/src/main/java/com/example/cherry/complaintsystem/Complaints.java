@@ -1,6 +1,7 @@
 package com.example.cherry.complaintsystem;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,7 +89,32 @@ public class Complaints extends Fragment {
 
         listView = (ListView) view.findViewById(R.id.complaint_list);
 
+        //Get the data stored in the local database.
+        Cursor c = extract_local_complaints();
+
         ComplaintModel = new ArrayList<>();
+
+        if (c.moveToFirst()) {
+            do{
+                /*Toast.makeText(getContext(),
+                        c.getString(c.getColumnIndex(DBContentProvider._ID)) +
+                                ", " +  c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_CLASS)) +
+                                ", " + c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_ISSUE)),
+                        Toast.LENGTH_SHORT).show(); */
+
+                int _ID = Integer.parseInt(c.getString(c.getColumnIndex(DBContentProvider._ID)));
+                String _CLASS = c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_CLASS));
+                String _ISSUE = c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_ISSUE));
+                String _DATE = c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_DATE));
+                int _STATUS = Integer.parseInt(c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_STATUS)));
+
+                ComplaintModel.add(new complaint_model(_ID, _CLASS, _ISSUE,_DATE, _STATUS));
+
+            } while (c.moveToNext());
+
+
+        }
+
 
         ComplaintModel.add(new complaint_model(1, "Washing Machine", "Not working", "23rd Jan", 1));
 
@@ -167,5 +194,17 @@ public class Complaints extends Fragment {
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
         void onFragmentInteraction(Uri uri);
+    }
+
+
+    private Cursor extract_local_complaints(){
+        // Retrieve student records
+        String URL = "content://com.example.cherry.complaintsystem.DBContentProvider/complaints_uri";
+        Uri local_complaints_uri = Uri.parse(URL);
+
+        Cursor c = getActivity().managedQuery(local_complaints_uri, null, null, null, null);
+
+        return c;
+
     }
 }
