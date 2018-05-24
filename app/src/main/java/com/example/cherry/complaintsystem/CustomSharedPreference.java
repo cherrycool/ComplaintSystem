@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 
 //Currently not in use properly -- WIll see later
 
+//Shared Preferences -- To store the student information such as name, email etc
+
 public class CustomSharedPreference {
 
     SharedPreferences sharedPref;
@@ -13,4 +15,7 @@ public class CustomSharedPreference {
         sharedPref = context.getSharedPreferences(filename, Context.MODE_PRIVATE);
         return sharedPref;
     }
+
+
+
 }

@@ -1,5 +1,10 @@
 package com.example.cherry.complaintsystem;
 
+import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by Cherry on 4/23/2018.
  */
@@ -40,4 +45,6 @@ public class complaint_model {
     public int getStatus(){
         return status;
     }
+
+
 }

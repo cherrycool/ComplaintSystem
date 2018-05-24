@@ -1,5 +1,6 @@
 package com.example.cherry.complaintsystem;
 
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -129,6 +130,7 @@ public class RegisterComplaintFragment extends Fragment {
                 complaint_model c_data = new complaint_model(id, register_complaint_class, complaint_issue, null, 1);
 
                 //Insert into the db
+
                 // Add a new student record
                 ContentValues values = new ContentValues();
                 values.put(DBContentProvider.COMPLAINT_CLASS, register_complaint_class);
@@ -137,11 +139,21 @@ public class RegisterComplaintFragment extends Fragment {
 
                 values.put(DBContentProvider.COMPLAINT_STATUS, 1);
 
+                //Insert in database content provider
                 Uri uri = getContext().getContentResolver().insert(DBContentProvider.CONTENT_URI_COMPLAINTS, values);
 
+                //Check if inserted or not in debug
                 Log.d("complaint_db", uri.toString());
 
                 Toast.makeText(getContext(), "Complaint registered", Toast.LENGTH_LONG).show();
+
+                //Send the data to the server.
+                long long_id = ContentUris.parseId(uri); //id of the last inserted data.
+
+
+                //Server serv = new Server();
+
+                //serv.push(c_data, null, getContext());
 
                 Fragment fragment = new Complaints();
 

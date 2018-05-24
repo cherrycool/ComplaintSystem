@@ -1,5 +1,6 @@
 package com.example.cherry.complaintsystem;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -8,12 +9,17 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +39,7 @@ public class Complaints extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -96,19 +103,30 @@ public class Complaints extends Fragment {
 
         if (c.moveToFirst()) {
             do{
-                /*Toast.makeText(getContext(),
-                        c.getString(c.getColumnIndex(DBContentProvider._ID)) +
-                                ", " +  c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_CLASS)) +
-                                ", " + c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_ISSUE)),
-                        Toast.LENGTH_SHORT).show(); */
-
                 int _ID = Integer.parseInt(c.getString(c.getColumnIndex(DBContentProvider._ID)));
                 String _CLASS = c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_CLASS));
                 String _ISSUE = c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_ISSUE));
                 String _DATE = c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_DATE));
                 int _STATUS = Integer.parseInt(c.getString(c.getColumnIndex(DBContentProvider.COMPLAINT_STATUS)));
 
-                ComplaintModel.add(new complaint_model(_ID, _CLASS, _ISSUE,_DATE, _STATUS));
+
+
+                complaint_model complaint = new complaint_model(_ID, _CLASS, _ISSUE,_DATE, _STATUS);
+
+                //To sync and push to server -- If server id is null, means its a new record, so its inserted in the database.
+                if(TextUtils.isEmpty(c.getString(c.getColumnIndex(DBContentProvider._SID)))){
+                    Server server = new Server();
+
+                    Log.d("unsynced", c.getString(c.getColumnIndex(DBContentProvider._ID)));
+
+                    //Dummy Student Info
+                    student_info student = new student_info("Ash", "2013CS5", "971777", "Himadri", "ED-14");
+
+                    //Insert into database on server.
+                    server.push(complaint, student, getContext());
+                }
+
+                ComplaintModel.add(complaint);
 
             } while (c.moveToNext());
 
