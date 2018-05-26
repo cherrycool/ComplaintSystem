@@ -1,60 +1,118 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.cherry.complaintsystem.fragment_complaint_details">
-
-    <!--RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent">
+    <android.support.constraint.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/detail_class"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="5dp"
-            android:text="Date"
-            android:textColor="@android:color/black" />
-
-        <TextView>
-
-
-    </RelativeLayout-->
 
     <!-- To show the complaint detail after clicking on some complaint in the homepage content -->
-
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
-
-        <!-- Class -->
-        <TextView android:id="@+id/details_class"
+    <!-- Class -->
+    <TextView
+            android:id="@+id/details_class"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
-            />
-        <!-- Date of complaint -->
-        <TextView android:id="@+id/details_date"
-                  android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  />
-        <!-- Issue -->
-        <TextView android:id="@+id/details_issue"
-                  android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  />
-        <!-- Status -->
-        <TextView android:id="@+id/details_status"
-                  android:layout_height="wrap_content"
-                  android:layout_width="wrap_content"
-                  />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Complaint Title"
+            android:textStyle="bold"
+            android:textColor="#931027"
+            android:background="#be7174"
+            android:textSize="16dp"
+        />
 
-    </LinearLayout>
+        <EditText
+            android:id="@+id/AddClass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Class Name"
+            app:layout_constraintTop_toBottomOf="@id/details_class"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:inputType="textMultiLine"/>
+    <!-- Date of complaint -->
+    <TextView
+            android:id="@+id/details_date"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/AddClass"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Date of Complaint"
+            android:textStyle="bold"
+            android:textColor="#931027"
+            android:background="#be7174"
+            android:textSize="16dp"
+              />
+    <EditText
+        android:id="@+id/AddDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        app:layout_constraintTop_toBottomOf="@id/details_date"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="16dp"
+        android:inputType="textMultiLine"/>
+    <!-- Issue -->
+    <TextView
+            android:id="@+id/details_issue"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/AddDate"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Issue"
+            android:textStyle="bold"
+            android:textColor="#931027"
+            android:background="#be7174"
+            android:textSize="16dp"
+              />
+    <EditText
+            android:id="@+id/AddIssue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Issue"
+            app:layout_constraintTop_toBottomOf="@id/details_issue"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:inputType="textMultiLine"/>
+    <!-- Status -->
+    <TextView
+            android:id="@+id/details_status"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/AddIssue"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:text="Status"
+            android:textStyle="bold"
+            android:textColor="#931027"
+            android:background="#be7174"
+            android:textSize="16dp"
+              />
+    <EditText
+            android:id="@+id/AddStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Status"
+            app:layout_constraintTop_toBottomOf="@id/details_status"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="16dp"
+            android:inputType="textMultiLine"/>
 
-
-
-</FrameLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
