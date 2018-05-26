@@ -22,7 +22,7 @@
         android:id="@+id/SignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Ip"
+        android:text="Sign Up"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf= "@id/SignUp"
         android:layout_marginTop="15dp"
