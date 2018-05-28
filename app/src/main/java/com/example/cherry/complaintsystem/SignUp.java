@@ -28,6 +28,9 @@ public class SignUp extends AppCompatActivity {
 
         //When okay is clicked --  get info from textboxes
 
+        //Check if information of student is stored -- That is already signed in
+
+
     }
 
 

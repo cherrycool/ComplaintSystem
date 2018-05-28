@@ -120,16 +120,8 @@ public class RegisterComplaintFragment extends Fragment {
 
                 String complaint_issue = issue_edit.getText().toString();
 
-                //DateFormat df = new SimpleDateFormat("dd MM yyyy, HH:mm");
-                //String complaint_date = df.format(Calendar.getInstance().getTime());
-
-                //Log.d("complaint_register", Integer.toString(id) + " : " + register_complaint_class + " : " + complaint_issue + " : " + complaint_date);
-
-
                 //Create the complaint model
                 complaint_model c_data = new complaint_model(id, register_complaint_class, complaint_issue, null, 1);
-
-                //Insert into the db
 
                 // Add a new student record
                 ContentValues values = new ContentValues();
