@@ -9,6 +9,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_personal_info_input">PersonalInfoInput</string>
 
     <!-- For the Complaint Classes >
     <string name="class_prompt"> Choose Problem Type </string>

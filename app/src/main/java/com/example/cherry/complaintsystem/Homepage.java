@@ -20,7 +20,7 @@ import android.view.MenuItem;
 //The fragment_complaints.xml corresponding to Complaints.java Activity, is loaded into the framelayout space in the content_homepage.xml
 
 public class Homepage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Complaints.OnFragmentInteractionListener, fragment_complaint_details.OnFragmentInteractionListener, RegisterComplaintFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, Complaints.OnFragmentInteractionListener, fragment_complaint_details.OnFragmentInteractionListener, RegisterComplaintFragment.OnFragmentInteractionListener, personal_info.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +34,8 @@ public class Homepage extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Server server = new Server();
-                student_info student = new student_info("Ash", "2013CS5", "971777", "Himadri", "ED-14");
+                CustomSharedPreference student_preferences = new CustomSharedPreference(getApplicationContext());
+                student_info student = student_preferences.getStudentInfo(getApplicationContext());
                 server.sync(getApplicationContext(), student, 1);
 
                 //Reload the complaints fragment
@@ -93,7 +94,8 @@ public class Homepage extends AppCompatActivity
             Server server = new Server();
 
             //Dummy Student Info
-            student_info student = new student_info("Ash", "2013CS5", "971777", "Himadri", "ED-14");
+            CustomSharedPreference student_preferences = new CustomSharedPreference(getApplicationContext());
+            student_info student = student_preferences.getStudentInfo(getApplicationContext());
 
             server.sync(getApplicationContext(), student, 1);
 
@@ -135,9 +137,10 @@ public class Homepage extends AppCompatActivity
         } else if (id == R.id.nav_register) {
             fragment = new RegisterComplaintFragment();
 
-        } /*else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_info) {
+            fragment = new personal_info();
 
-        } else if (id == R.id.nav_manage) {
+        } /*else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 

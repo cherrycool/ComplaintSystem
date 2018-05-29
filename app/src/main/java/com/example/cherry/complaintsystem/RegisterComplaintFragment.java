@@ -108,7 +108,7 @@ public class RegisterComplaintFragment extends Fragment {
                 //TODO: 1. Save in local DB and display on list
                 //TODO: 2. Sync with server
 
-                CustomSharedPreference sharedPrefObj = new CustomSharedPreference();
+                CustomSharedPreference sharedPrefObj = new CustomSharedPreference(getContext());
                 SharedPreferences sharedPref = sharedPrefObj.getSharedPref("complaints", getContext());
 
                 int id = sharedPref.getAll().size();

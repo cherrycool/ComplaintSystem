@@ -120,8 +120,9 @@ public class Complaints extends Fragment {
                     Log.d("unsynced", c.getString(c.getColumnIndex(DBContentProvider._ID)));
 
                     //Dummy Student Info
-                    student_info student = new student_info("Ash", "2013CS5", "971777", "Himadri", "ED-14");
-
+                    //student_info student = new student_info("Ash", "2013CS5", "971777", "Himadri", "ED-14");
+                    CustomSharedPreference student_preferences = new CustomSharedPreference(getContext());
+                    student_info student = student_preferences.getStudentInfo(getContext());
                     //Insert into database on server.
                     server.push(complaint, student, getContext());
                 }

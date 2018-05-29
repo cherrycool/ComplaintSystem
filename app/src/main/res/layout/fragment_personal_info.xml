@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".personal_info">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/personal_info_label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Personal Information"
+            android:padding="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/input_name_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            />
+
+        <TextView
+            android:id="@+id/input_entry_no_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:hint="Entry No." />
+
+        <TextView
+            android:id="@+id/input_branch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:hint="Branch" />
+
+        <TextView
+            android:id="@+id/input_phone_no_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:hint="Phone number" />
+
+        <TextView
+            android:id="@+id/input_year_joining_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:hint="Year Of Joining" />
+
+        <TextView
+            android:id="@+id/hostel_info_label_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hostel Information"
+            android:padding="5dp"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView android:id="@+id/input_hostel_info"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:padding="5dp"
+            />
+
+
+        <TextView
+            android:id="@+id/input_room_no_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:hint="Room Number" />
+
+        <TextView
+            android:id="@+id/input_floor_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:hint="Room Floor" />
+
+        <TextView
+            android:id="@+id/input_wing_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:hint="Wing" />
+
+        <Button
+            android:id="@+id/pInfo_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Edit"
+            />
+
+    </LinearLayout>
+
+</FrameLayout>

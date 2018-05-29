@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".PersonalInfoInput"
+    tools:showIn="@layout/activity_personal_info_input">
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/personal_info_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personal Information"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/input_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Name" />
+
+            <EditText
+                android:id="@+id/input_entry_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Entry No." />
+
+            <EditText
+                android:id="@+id/input_branch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Branch" />
+
+            <EditText
+                android:id="@+id/input_phone_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Phone number" />
+
+            <EditText
+                android:id="@+id/input_year_joining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Year Of Joining" />
+
+            <TextView
+                android:id="@+id/hostel_info_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hostel Information"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <Spinner android:id="@+id/input_hostel"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:padding="5dp"
+                />
+
+
+            <EditText
+                android:id="@+id/input_room_no"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Room Number" />
+
+            <EditText
+                android:id="@+id/input_floor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Room Floor" />
+
+            <EditText
+                android:id="@+id/input_wing"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Wing" />
+
+            <Button
+                android:id="@+id/pInfo_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Enter"
+                />
+
+
+        </LinearLayout>
+
+        <!--LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+
+        </LinearLayout-->
+
+
+
+
+
+
+</android.support.constraint.ConstraintLayout>
