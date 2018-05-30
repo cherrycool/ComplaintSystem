@@ -1,5 +1,7 @@
 package com.example.cherry.complaintsystem;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -45,10 +47,13 @@ public class SignUp extends AppCompatActivity {
             intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
 
             startActivity(intent);
+            this.finish();
         }
 
 
         Button login = (Button) findViewById(R.id.login_btn);
+
+        final Activity activity = this;
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +66,7 @@ public class SignUp extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), PersonalInfoInput.class);
                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
                 startActivity(intent);
-
+                activity.finish();
 
             }
         });

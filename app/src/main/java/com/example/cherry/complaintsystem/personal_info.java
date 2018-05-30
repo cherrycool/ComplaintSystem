@@ -1,6 +1,8 @@
 package com.example.cherry.complaintsystem;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +10,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -85,8 +88,6 @@ public class personal_info extends Fragment {
 
         CustomSharedPreference studentPreferences = new CustomSharedPreference(getContext());
 
-
-
         //Get student_info from the shared preferences
         student_info student = studentPreferences.getStudentInfo(getContext());
 
@@ -115,6 +116,21 @@ public class personal_info extends Fragment {
         TextView input_wing = view.findViewById(R.id.input_wing_info);
         input_wing.setText(student.getWing());
 
+        final Activity activity = getActivity();
+
+        Button edit_info = (Button) view.findViewById(R.id.pInfo_edit);
+        edit_info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(getContext(), PersonalInfoInput.class);
+                //intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
+                startActivity(intent);
+                //activity.finish();
+
+
+            }
+        });
 
 
     }

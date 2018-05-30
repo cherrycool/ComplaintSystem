@@ -1,5 +1,7 @@
 package com.example.cherry.complaintsystem;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -17,6 +19,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PersonalInfoInput extends AppCompatActivity {
+
+    private String spinner_selected;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +41,10 @@ public class PersonalInfoInput extends AppCompatActivity {
         //Retrieve Hostel information from server
         //Hardcoded for now
         addhostelToSpinner();
+
+        //Put in text in edittext if it exists.
+
+        final Activity activity = this;
 
         Button enter = (Button) findViewById(R.id.pInfo_btn);
 
@@ -60,8 +68,8 @@ public class PersonalInfoInput extends AppCompatActivity {
                 EditText phone_no_text = findViewById(R.id.input_phone_no);
                 String phone_no = phone_no_text.getText().toString();
 
-                Spinner hostel_spinner = findViewById(R.id.input_hostel);
-                String hostel = hostel_spinner.getSelectedItem().toString();
+                //Spinner hostel_spinner = findViewById(R.id.input_hostel);
+                String hostel = spinner_selected; //hostel_spinner.getSelectedItem().toString();
 
                 EditText room_no_text = findViewById(R.id.input_room_no);
                 String room_no = room_no_text.getText().toString();
@@ -81,6 +89,7 @@ public class PersonalInfoInput extends AppCompatActivity {
                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag
 
                 startActivity(intent);
+                activity.finish();
 
             }
         });
@@ -104,7 +113,7 @@ public class PersonalInfoInput extends AppCompatActivity {
         spinner_class.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                // = spinner_class.getSelectedItem().toString();
+                spinner_selected = spinner_class.getSelectedItem().toString();
 
                 //Toast.makeText(getContext(), register_complaint_class, Toast.LENGTH_LONG).show();
             }
