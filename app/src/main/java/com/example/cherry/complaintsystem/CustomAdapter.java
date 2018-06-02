@@ -22,6 +22,7 @@ public class CustomAdapter extends ArrayAdapter<complaint_model> implements View
 
     private List<complaint_model> dataSet;
     Context mContext;
+    private String[] statuses = new String [] {"Registered", "In Progress", "Complete"};
 
     //View Lookup Cache
     private static class ViewHolder{
@@ -81,7 +82,10 @@ public class CustomAdapter extends ArrayAdapter<complaint_model> implements View
 
         viewHolder.txtClass.setText(ComplaintModel.getComplaintClass());
         viewHolder.txtDate_time.setText(ComplaintModel.getDate_time());
-        viewHolder.txtStatus.setText(Integer.toString(ComplaintModel.getStatus()));
+
+        String text_status = statuses[ComplaintModel.getStatus() - 1];
+
+        viewHolder.txtStatus.setText(text_status);
 
         return convertView;
     }

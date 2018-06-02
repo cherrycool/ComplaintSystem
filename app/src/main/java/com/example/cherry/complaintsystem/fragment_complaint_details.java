@@ -91,8 +91,12 @@ public class fragment_complaint_details extends Fragment {
         TextView complaint_issue_text = (TextView) view.findViewById(R.id.details_issue);
         complaint_issue_text.setText(complaint_issue);
 
+        String[] statuses = new String [] {"Registered", "In Progress", "Complete"};
+
+        String str_complaint_status = statuses[Integer.parseInt(complaint_status) - 1];
+
         TextView complaint_status_text = (TextView) view.findViewById(R.id.details_status);
-        complaint_status_text.setText(complaint_status);
+        complaint_status_text.setText(str_complaint_status);
 
 
 

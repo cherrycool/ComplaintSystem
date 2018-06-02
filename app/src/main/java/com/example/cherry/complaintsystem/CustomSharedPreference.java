@@ -63,6 +63,7 @@ public class CustomSharedPreference {
 
         String name = StudentPreferences.getString("name", null);
         String entry_no = StudentPreferences.getString("entry_no", null);
+        String branch = StudentPreferences.getString("branch", null);
         String phone_no = StudentPreferences.getString("phone_no", null);
         String year_join = StudentPreferences.getString("year_join", null);
 
@@ -72,7 +73,7 @@ public class CustomSharedPreference {
         String wing = StudentPreferences.getString("wing", null);
 
 
-        student_info student = new student_info(name, entry_no, phone_no, year_join, hostel, room_no, floor, wing);
+        student_info student = new student_info(name, entry_no, branch, phone_no, year_join, hostel, room_no, floor, wing);
 
         return student;
 

@@ -98,6 +98,9 @@ public class personal_info extends Fragment {
         TextView input_entry_no = view.findViewById(R.id.input_entry_no_info);
         input_entry_no.setText(student.getEntry_no());
 
+        TextView input_branch = view.findViewById(R.id.input_branch_info);
+        input_branch.setText(student.getBranch());
+
         TextView input_phone_no = view.findViewById(R.id.input_phone_no_info);
         input_phone_no.setText(student.getPhone_no());
 

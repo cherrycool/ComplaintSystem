@@ -1,11 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.cherry.complaintsystem.Homepage">
+    tools:context="com.example.cherry.complaintsystem.MainActivity">
     <item
-        android:id="@+id/action_sync"
-        android:orderInCategory="1"
-        android:title="Sync"
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:title="Settings"
         app:showAsAction="never" />
     <!--item android:id="@+id/action_sync"
         android:orderInCategory="100"

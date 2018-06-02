@@ -29,7 +29,7 @@ public class Homepage extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,14 +37,8 @@ public class Homepage extends AppCompatActivity
                 CustomSharedPreference student_preferences = new CustomSharedPreference(getApplicationContext());
                 student_info student = student_preferences.getStudentInfo(getApplicationContext());
                 server.sync(getApplicationContext(), student, 1);
-
-                //Reload the complaints fragment
-                displaySelectedScreen(R.id.nav_complaint);
-
-
-
             }
-        });
+        }); */
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -93,7 +87,6 @@ public class Homepage extends AppCompatActivity
 
             Server server = new Server();
 
-            //Dummy Student Info
             CustomSharedPreference student_preferences = new CustomSharedPreference(getApplicationContext());
             student_info student = student_preferences.getStudentInfo(getApplicationContext());
 
@@ -127,7 +120,6 @@ public class Homepage extends AppCompatActivity
     }
 
     public void displaySelectedScreen(int id){
-
 
         Fragment fragment = null;
 

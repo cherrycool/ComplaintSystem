@@ -135,10 +135,6 @@ public class Complaints extends Fragment {
         }
 
 
-        //ComplaintModel.add(new complaint_model(1, "Washing Machine", "Not working", "23rd Jan", 1));
-
-        //ComplaintModel.add(new complaint_model(2, "Electrical", "Not working", "1st Feb", 3));
-
         ComplaintAdapter = new CustomAdapter(getContext(), ComplaintModel);
 
         listView.setAdapter(ComplaintAdapter);

@@ -43,6 +43,43 @@ public class PersonalInfoInput extends AppCompatActivity {
         addhostelToSpinner();
 
         //Put in text in edittext if it exists.
+        CustomSharedPreference studentPref = new CustomSharedPreference(getApplicationContext());
+        if(studentPref.getSignedUp()){
+
+            //Get student_info from the shared preferences
+            student_info student = studentPref.getStudentInfo(getApplicationContext());
+
+            EditText name_text = findViewById(R.id.input_name);
+            name_text.setText(student.getName());
+
+            EditText entry_no_text = findViewById(R.id.input_entry_no);
+            entry_no_text.setText(student.getEntry_no());
+
+            EditText branch_text = findViewById(R.id.input_branch);
+            branch_text.setText(student.getBranch());
+
+            EditText year_join_text = findViewById(R.id.input_year_joining);
+            year_join_text.setText(student.getYear_join());
+
+            EditText phone_no_text = findViewById(R.id.input_phone_no);
+            phone_no_text.setText(student.getPhone_no());
+
+            //Spinner hostel_spinner = findViewById(R.id.input_hostel);
+            //String hostel = spinner_selected; //hostel_spinner.getSelectedItem().toString();
+
+            EditText room_no_text = findViewById(R.id.input_room_no);
+            room_no_text.setText(student.getRoom_no());
+
+            EditText floor_text = findViewById(R.id.input_floor);
+            floor_text.setText(student.getFloor());
+
+
+            EditText wing_text = findViewById(R.id.input_wing);
+            wing_text.setText(student.getWing());
+
+        }
+
+
 
         final Activity activity = this;
 
