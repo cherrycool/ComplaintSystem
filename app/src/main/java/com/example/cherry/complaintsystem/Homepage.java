@@ -20,7 +20,7 @@ import android.view.MenuItem;
 //The fragment_complaints.xml corresponding to Complaints.java Activity, is loaded into the framelayout space in the content_homepage.xml
 
 public class Homepage extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, Complaints.OnFragmentInteractionListener, fragment_complaint_details.OnFragmentInteractionListener, RegisterComplaintFragment.OnFragmentInteractionListener, personal_info.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener, Complaints.OnFragmentInteractionListener, fragment_complaint_details.OnFragmentInteractionListener, RegisterComplaintFragment.OnFragmentInteractionListener, personal_info.OnFragmentInteractionListener, Hostel_Info.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,7 +90,7 @@ public class Homepage extends AppCompatActivity
             CustomSharedPreference student_preferences = new CustomSharedPreference(getApplicationContext());
             student_info student = student_preferences.getStudentInfo(getApplicationContext());
 
-            server.sync(getApplicationContext(), student, 1);
+            server.sync(getApplicationContext(), student, 1, this);
 
         }else if(id == android.R.id.home){
             if(getFragmentManager().getBackStackEntryCount() != 0){
@@ -132,9 +132,10 @@ public class Homepage extends AppCompatActivity
         } else if (id == R.id.nav_info) {
             fragment = new personal_info();
 
-        } /*else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_hostel) {
+            fragment = new Hostel_Info();
 
-        } else if (id == R.id.nav_share) {
+        }/* else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Hostel_Info">
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".MainActivity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/hostel_info_label"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hostel Information"
+                android:padding="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:id="@+id/hostel_name_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hostel Name"
+                android:textSize="18dp"
+                android:padding="5dp"
+                />
+
+            <TextView
+                android:id="@+id/input_hostel_name_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                />
+
+            <TextView
+                android:id="@+id/caretaker_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:text="Caretaker Name" />
+
+            <TextView
+                android:id="@+id/input_caretaker_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                />
+
+            <TextView
+                android:id="@+id/designation_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:text="Designation" />
+
+            <TextView
+                android:id="@+id/input_designation_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="5dp"
+                />
+
+            <TextView android:id="@+id/phone_no_info"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:padding="5dp"
+                android:textSize="18dp"
+                android:text="Phone Number"
+                />
+
+
+            <TextView
+                android:id="@+id/input_phone_no_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:padding="5dp"
+                />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>

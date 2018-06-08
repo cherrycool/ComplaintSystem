@@ -121,6 +121,12 @@ public class PersonalInfoInput extends AppCompatActivity {
                 studentPreferences.addPersonalInfo(name, entry_no, branch, phone_no, year_join);
                 studentPreferences.addHostelInfo(hostel, room_no, floor, wing);
 
+                student_info student = studentPreferences.getStudentInfo(getApplicationContext());
+
+                //Add the hostel info in shared preferences.
+                Server server = new Server();
+                server.getHostelInfo(getApplicationContext(), student);
+
                 Intent intent = new Intent(getApplicationContext(), Homepage.class);
 
                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY); // Adds the FLAG_ACTIVITY_NO_HISTORY flag

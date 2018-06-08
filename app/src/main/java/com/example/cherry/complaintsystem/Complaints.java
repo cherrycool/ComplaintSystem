@@ -132,14 +132,18 @@ public class Complaints extends Fragment {
             } while (c.moveToNext());
 
 
-        }
+        }else{
 
+            Server server = new Server();
+            CustomSharedPreference student_preferences = new CustomSharedPreference(getContext());
+            student_info student = student_preferences.getStudentInfo(getContext());
+            server.sync(getContext(), student, 1, getActivity());
+
+        }
 
         ComplaintAdapter = new CustomAdapter(getContext(), ComplaintModel);
 
         listView.setAdapter(ComplaintAdapter);
-
-
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
             @Override
@@ -161,6 +165,14 @@ public class Complaints extends Fragment {
                 //Snackbar.make(view, c_model.getComplaintClass() + ", " + c_model.getIssue(), Snackbar.LENGTH_LONG).setAction("No action", null).show();
             }
         });
+
+        //Check for updates
+        Server server = new Server();
+        CustomSharedPreference student_preferences = new CustomSharedPreference(getContext());
+        student_info student = student_preferences.getStudentInfo(getContext());
+        server.sync(getContext(), student, 2, getActivity());
+
+
 
     }
 

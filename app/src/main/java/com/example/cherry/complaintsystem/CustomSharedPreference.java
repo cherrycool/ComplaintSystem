@@ -2,6 +2,10 @@ package com.example.cherry.complaintsystem;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.util.Log;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 //Currently not in use properly -- WIll see later
 
@@ -91,6 +95,39 @@ public class CustomSharedPreference {
         }
 
         return val;
+    }
+
+    public void addHostelInfoFromJSON(JSONObject response){
+
+        try {
+            String caretaker = response.getString("caretaker");
+            String designation = response.getString("designation");
+            String phone_no = response.getString("phone_no");
+
+            //Add to the preferences.
+            editor.putString("caretaker", caretaker);
+            editor.putString("designation", designation);
+            editor.putString("hostel_phone_no", phone_no);
+
+            editor.commit();
+
+        }catch (JSONException e){
+            Log.e("Error", "Extracting hostel info from json", e);
+        }
+
+    }
+
+    public String [] getHostelInfo(Context context){
+
+        String [] info = new String [4];
+
+        info[0] = StudentPreferences.getString("hostel", null);
+        info[1] = StudentPreferences.getString("caretaker", null);
+        info[2] = StudentPreferences.getString("designation", null);
+        info[3] = StudentPreferences.getString("hostel_phone_no", null);
+
+        return info;
+
     }
 
 }
